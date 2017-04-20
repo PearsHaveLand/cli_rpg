@@ -6,6 +6,20 @@ Warrior::Warrior(string nm) : RPC(nm){}
 //  growth rate
 void Warrior::levelUp(){
   int addVit, addStr, addDex, addWis, addInt, addCha;
+
+  /*
+  *   Outputs the stats before levelling, with the level-up
+  *     values being added. Ex:
+  *
+  *   Character_Name
+  *   Character_Class + 1
+  *   ---------------------
+  *   Level: x + y
+  *   VIT: x + y
+  *   ...
+  *   CHA: x + y
+  *   =====================
+  */
   cout << name << endl;
   cout << charClass << endl;
   cout << "---------------------" << endl;
@@ -37,9 +51,9 @@ void Warrior::levelUp(){
   cout << "CHA: " << getCharisma() << " + " << addCha << endl;
   setCharisma(getCharisma() + addCha);
 
-  cout << endl;
   cout << "=====================" << endl;
   cout << endl;
-  
+
+  //Outputs the new stat totals
   printStats();
 }
