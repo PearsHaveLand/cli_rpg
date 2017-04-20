@@ -1,9 +1,34 @@
+/*
+Will have subclasses for each character type:
+	Paladin, Wizard, etc.
+*/
 #ifndef RPC_H
 #define RPC_H
 
+#include "Dice.cpp"
 #include <string>
 #include <iostream>
 class RPC {
+	public:
+		RPC(string nm);
+
+		//Getters
+		int getLevel(){return level;}
+		int getVitality(){return vitality;}
+		int getStrength(){return strength;}
+		int getDexterity(){return dexterity;}
+		int getWisdom(){return wisdom;}
+		int getIntelligence(){return intelligence;}
+		int getCharisma(){return charisma;}
+		int getPhysDefense(){return physDefense;}
+		int getMagDefense(){return magDefense;}
+		int getPhysAttack(){return physAttack;}
+		int getMagAttack(){return magAttack;}
+		int getAvoidability(){return avoidability;}
+		string getName(){return name;}
+		void getClass(){return charClass;}
+		void printStats();
+
 	private:
 		//The main ability scores of the character
 		int vitality;
@@ -13,6 +38,7 @@ class RPC {
 		int intelligence;
 		int charisma;
 
+		//Hitpoints
 		int currenthp;
 		int totalhp;
 
@@ -28,7 +54,8 @@ class RPC {
 		int currentExp;
 		int expToNext;
 
-		std::string name;
+		string name;
+		string charClass;
 
 		//Setters
 		void setVitality(int vit);
@@ -43,28 +70,12 @@ class RPC {
 		void setMagAttack(int atk);
 		void setAvoidability(int avo);
 		void setName(std::string nm);
+		void setLevel(int lv);
+		void setClass();
 
 		//Levels the character up
 		virtual void levelUp();
 
-	public:
-		RPC(std::string nm);
-
-		//Getters
-		int getLevel(){return level;};
-		int getVitality(){return vitality;};
-		int getStrength(){return strength;};
-		int getDexterity(){return dexterity;};
-		int getWisdom(){return wisdom;};
-		int getIntelligence(){return intelligence;};
-		int getCharisma(){return charisma;};
-		int getPhysDefense(){return physDefense;};
-		int getMagDefense(){return magDefense;};
-		int getPhysAttack(){return physAttack;};
-		int getMagAttack(){return magAttack;};
-		int getAvoidability(){return avoidability;};
-		std::string getName(){return name;};
-		void printStats();
 };
 
 #endif
