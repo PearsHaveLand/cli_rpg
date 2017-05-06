@@ -1,22 +1,26 @@
 CXX = g++
 CXXFLAGS = -Wall
 
-test: RPC.o test.cpp
-	$(CXX) $(CXXFLAGS) RPC.o test.cpp -o test
+test: Warrior.o test.cpp
+	$(CXX) $(CXXFLAGS) Dice.o Warrior.o test.cpp -o test
 
-RPC.o: RPC.cpp RPC.h
-	$(CXX) $(CXXFLAGS) -c RPC.cpp
+Dice.o: Dice.h Dice.cpp
+	$(CXX) $(CXXFLAGS) -c Dice.cpp
+
+Warrior.o: Dice.o RPC.cpp RPC.h Warrior.h Warrior.cpp
+	$(CXX) $(CXXFLAGS) -c Warrior.cpp
 
 #easy compiling for running with GDB
 debug: RPC.o test.cpp
-	$(CXX) $(CXXFLAGS) -g RPC.o test.cpp -o debug
+	$(CXX) $(CXXFLAGS) -g RPC.o Warrior.o test.cpp -o debug
 
-run:
+run: test
 	./test
 
-rundebug:
+rundebug: debug
 	./debug
 
 clean:
 	rm *.o
+	rm test
 	rm *~
