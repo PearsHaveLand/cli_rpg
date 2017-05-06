@@ -1,7 +1,6 @@
 #include "RPC.h"
-using namespace std;
 
-RPC::RPC(string nm){
+RPC::RPC(std::string nm){
 	setName(nm);
 	setVitality(10);
 	setStrength(10);
@@ -12,20 +11,20 @@ RPC::RPC(string nm){
 }
 
 void RPC::printStats(){
-	cout << name << endl;
-	cout << charClass << endl;
-	cout << "---------------------" << endl;
-	cout << "VIT: " << getVitality() << endl;
-	cout << "STR: " << getStrength() << endl;
-	cout << "DEX: " << getDexterity() << endl;
-	cout << "WIS: " << getWisdom() << endl;
-	cout << "INT: " << getIntelligence() << endl;
-	cout << "CHA: " << getCharisma() << endl;
+	std::cout << name << std::endl;
+	std::cout << charClass << std::endl;
+	std::cout << "---------------------" << std::endl;
+	std::cout << "VIT: " << getVitality() << std::endl;
+	std::cout << "STR: " << getStrength() << std::endl;
+	std::cout << "DEX: " << getDexterity() << std::endl;
+	std::cout << "WIS: " << getWisdom() << std::endl;
+	std::cout << "INT: " << getIntelligence() << std::endl;
+	std::cout << "CHA: " << getCharisma() << std::endl;
 
 }
 
 //Setters//////////////////////////
-void RPC::setName(string nm){
+void RPC::setName(std::string nm){
 	name = nm;
 }
 void RPC::setVitality(int vit){
@@ -64,4 +63,8 @@ void RPC::setAvoidability(int avo){
 
 void RPC::setLevel(int lv){
 	level = lv;
+}
+
+void RPC::setClass(std::string cl) {
+	charClass = cl;
 }
