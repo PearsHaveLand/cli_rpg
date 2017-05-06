@@ -1,15 +1,16 @@
-#include "RPC.cpp"
+#include "Warrior.h"
 #include <iostream>
 using namespace std;
 
 int main() {
 	string input;
-	
-	cout << "Welcome traveller, what is your name?" << endl;
-	cin >> input;
 
-	RPC player(input);
-	player.printStats();
-	
+	cout << "Welcome traveller, enter your name: ";
+	getline(cin, input);
+
+	Warrior player(input);
+
+	player.levelUp();
+
 	return 0;
 }
