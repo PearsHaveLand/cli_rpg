@@ -1,6 +1,8 @@
 #include "Warrior.h"
-
-Warrior::Warrior(string nm) : RPC(nm){}
+#include "RPC.cpp"
+Warrior::Warrior(std::string nm) : RPC::RPC(nm){
+  setClass("Warrior");
+}
 
 //Increases the character's stats based on the character's supposed
 //  growth rate
@@ -20,39 +22,39 @@ void Warrior::levelUp(){
   *   CHA: x + y
   *   =====================
   */
-  cout << name << endl;
-  cout << charClass << endl;
-  cout << "---------------------" << endl;
+  std::cout << getName() << std::endl;
+  std::cout << getClass() << std::endl;
+  std::cout << "---------------------" << std::endl;
 
-  cout << "Level: " << getLevel() << "+ 1" << endl;
+  std::cout << "Level: " << getLevel() << "+ 1" << std::endl;
   setLevel(getLevel() + 1);
 
-  addVit = rollD4();
-  cout << "VIT: " << getVitality() << " + " << addVit << endl;
+  addVit = Dice::rollD4();
+  std::cout << "VIT: " << getVitality() << " + " << addVit << std::endl;
   setVitality(getVitality() + addVit);
 
-  addStr = rollD4();
-  cout << "STR: " << getStrength() << " + " << addStr << endl;
+  addStr = Dice::rollD4();
+  std::cout << "STR: " << getStrength() << " + " << addStr << std::endl;
   setStrength(getStrength() + addStr);
 
-  addDex = rollD2();
-  cout << "DEX: " getDexterity() << " + " << addDex << endl;
+  addDex = Dice::rollD2();
+  std::cout << "DEX: " << getDexterity() << " + " << addDex << std::endl;
   setDexterity(getDexterity() + addDex);
 
-  addWis = rollD2();
-  cout << "WIS: " << getWisdom() << " + " << addWis << endl;
+  addWis = Dice::rollD2();
+  std::cout << "WIS: " << getWisdom() << " + " << addWis << std::endl;
   setWisdom(getWisdom() + addWis);
 
-  addInt = rollD2();
-  cout << "INT: " << getIntelligence() << " + " << addInt << endl;
+  addInt = Dice::rollD2();
+  std::cout << "INT: " << getIntelligence() << " + " << addInt << std::endl;
   setIntelligence(getIntelligence() + addInt);
 
-  addCha = rollD4();
-  cout << "CHA: " << getCharisma() << " + " << addCha << endl;
+  addCha = Dice::rollD4();
+  std::cout << "CHA: " << getCharisma() << " + " << addCha << std::endl;
   setCharisma(getCharisma() + addCha);
 
-  cout << "=====================" << endl;
-  cout << endl;
+  std::cout << "=====================" << std::endl;
+  std::cout << std::endl;
 
   //Outputs the new stat totals
   printStats();
