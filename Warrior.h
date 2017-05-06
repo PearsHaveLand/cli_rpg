@@ -2,12 +2,10 @@
 #define WARRIOR_H
 
 #include "RPC.h"
-
 class Warrior : public RPC {
 
   public:
-    Warrior(string nm);
-  private:
+    Warrior(std::string nm);
     void levelUp();
 };
 
