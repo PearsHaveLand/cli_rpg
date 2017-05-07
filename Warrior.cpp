@@ -1,5 +1,6 @@
 #include "Warrior.h"
 #include "RPC.cpp"
+
 Warrior::Warrior(std::string nm) : RPC::RPC(nm){
   setClass("Warrior");
 }
@@ -26,7 +27,7 @@ void Warrior::levelUp(){
   std::cout << getClass() << std::endl;
   std::cout << "---------------------" << std::endl;
 
-  std::cout << "Level: " << getLevel() << "+ 1" << std::endl;
+  std::cout << "Level: " << getLevel() << " + 1" << std::endl;
   setLevel(getLevel() + 1);
 
   addVit = Dice::rollD4();
