@@ -24,3 +24,4 @@ clean:
 	rm *.o
 	rm test
 	rm *~
+	rm *#
