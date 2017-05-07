@@ -7,15 +7,37 @@
 #define RPC_H
 
 #include "Dice.h"
-#include <string>
+#include "Creature.h"
+#include "Monster.h"
 #include <iostream>
-class RPC {
+
+class RPC : public Creature {
 	public:
 		RPC();
 		RPC(std::string nm);
 
 		//Getters
+		void printStats();
+		std::string getClass(){return charClass;}
 		int getLevel(){return level;}
+
+		//Setters
+		void setLevel(int lv);
+		void setClass(std::string cl);
+
+	private:
+		std::string charClass;
+
+		//For levelling
+		int level;
+		int currentExp;
+		int expToNext;
+};
+#endif
+
+/*INHERITED FROM CREATURE**************************
+
+		//Getters
 		int getVitality(){return vitality;}
 		int getStrength(){return strength;}
 		int getDexterity(){return dexterity;}
@@ -28,11 +50,26 @@ class RPC {
 		int getMagAttack(){return magAttack;}
 		int getAvoidability(){return avoidability;}
 		std::string getName(){return name;}
-		std::string getClass(){return charClass;}
-		void printStats();
 		//Levels the character up
 		//Made virtual
 		virtual void levelUp() = 0;
+
+
+		// makeAttack
+		// Takes argument of Monster pointer
+	 	// Rolls d20 to see if hits
+		// Returns int, indicating the severity of the attack
+
+		virtual int makeAttack(Monster*);
+
+		//Values added to actions based on
+		//	the DnD 5e formula of (stat - 10) / 2
+		int vitMod(){return (vitality - 10) / 2;}
+		int strMod(){return (strength - 10) / 2;}
+		int dexMod(){return (dexterity - 10) / 2;}
+		int wisMod(){return (wisdom - 10) / 2;}
+		int intMod(){return (intelligence - 10) / 2;}
+		int chaMod(){return (charisma - 10) / 2;}
 
 	protected:
 		//Setters
@@ -48,17 +85,16 @@ class RPC {
 		void setMagAttack(int atk);
 		void setAvoidability(int avo);
 		void setName(std::string nm);
-		void setLevel(int lv);
-		void setClass(std::string cl);
 
 	private:
-		//The main ability scores of the character
+		//The main ability scores of the creature
 		int vitality;
 		int strength;
 		int dexterity;
 		int wisdom;
 		int intelligence;
 		int charisma;
+		std::string name;
 
 		//Hitpoints
 		int currenthp;
@@ -71,16 +107,4 @@ class RPC {
 		int magAttack;
 		int avoidability;
 
-		//For levelling
-		int level;
-		int currentExp;
-		int expToNext;
-
-		std::string name;
-		std::string charClass;
-
-
-
-};
-
-#endif
+*/
